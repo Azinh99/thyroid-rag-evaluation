@@ -8,11 +8,6 @@ kg_env/
 # Docker and local environment folders
 devcontainer/
 
-# Neo4j / FAISS generated files
-output/
-results/
-results_saia/
-
 # Cache and temporary files
 __pycache__/
 *.pkl
