@@ -16,7 +16,7 @@ This repository contains a full pipeline to:
 The goal of this project is to study how different RAG configurations perform on **thyroid cancer–related multiple-choice questions**.
 
 Current status:
-
+ 
 - **LLM backend:** `medgemma-27b-it` (via SAIA API).
 - **RAG modes:**
   - `faiss` – pure vector search.
