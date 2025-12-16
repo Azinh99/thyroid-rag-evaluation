@@ -38,7 +38,7 @@ def build_faiss_index():
     with open(OUT_PATH, "wb") as fp:
         pickle.dump(_db, fp)
 
-    print("✅ FAISS index built:", OUT_PATH)
+    print("FAISS index built:", OUT_PATH)
 
 
 def load_index():
