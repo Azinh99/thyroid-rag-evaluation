@@ -12,3 +12,6 @@ devcontainer/
 __pycache__/
 *.pkl
 *.log
+# SNOMED / UMLS raw data (DO NOT COMMIT)
+snomed_diz_llm/KnowledgeGraph-info/kb_sources/umls/
+snomed_diz_llm/KnowledgeGraph-info/kb_sources/snomed/*.txt
