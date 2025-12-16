@@ -25,11 +25,27 @@ raw source files (e.g. MRCONSO.RRF, MRREL.RRF) are not included in this reposito
 3. Normalize entities and relations
 4. Build a unified Neo4j knowledge graph
 
-- Graph construction scripts:
-  - `build_big_kg.py`
-  - `import_umls_concepts.py`
-  - `import_umls_relations.py`
-  - `import_snomed_tc.py`
+### Knowledge Graph Construction (SNOMED CT + UMLS)
+
+The following scripts were used during graph construction:
+
+- `build_big_kg.py`  
+  Builds the integrated SNOMED–UMLS knowledge graph and loads it into Neo4j.
+
+- `import_umls_concepts.py`  
+  Imports UMLS concepts from MRCONSO.RRF.
+
+- `import_umls_relations.py`  
+  Imports UMLS relations from MRREL.RRF.
+
+- `import_semantic_types.py`  
+  Maps UMLS semantic types using MRSTY.RRF.
+
+- `import_snomed_tc.py`  
+  Imports SNOMED CT transitive closure relations.
+
+These scripts were executed once to populate the Neo4j database.
+The resulting graph is reused during all RAG experiments.
 
 **Note**:  
 Raw UMLS/SNOMED files are not included in the repository due to size and license constraints.
