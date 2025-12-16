@@ -12,11 +12,9 @@ devcontainer/
 __pycache__/
 *.pkl
 *.log
-# SNOMED / UMLS raw data (DO NOT COMMIT)
-snomed_diz_llm/KnowledgeGraph-info/kb_sources/umls/
-snomed_diz_llm/KnowledgeGraph-info/kb_sources/snomed/*.txt
-# Large biomedical KB files (DO NOT COMMIT)
+# Large biomedical raw data
 **/umls/*.RRF
-**/snomed/*TransitiveClosure*.txt
-**/KnowledgeGraph-info/kb_sources/umls/
-**/KnowledgeGraph-info/kb_sources/snomed/
+**/snomed/*TransitiveClosure*
+**/kb_sources/umls/
+**/kb_sources/snomed/
+
