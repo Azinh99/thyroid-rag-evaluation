@@ -1,0 +1,514 @@
+﻿CLOSED TEST QUESTIONS ON THYROID CANCER GUIDELINES
+
+
+-----------------------------------------------------------
+I. DIAGNOSIS AND CLASSIFICATION
+-----------------------------------------------------------
+
+
+1) Which sonographic feature has the highest specificity for thyroid malignancy?
+   A) Hypoechogenicity
+   B) Increased intranodular vascularity 
+   C) Taller-than-wide shape
+   D) Macrocalcifications
+   Answer: C
+
+
+2) Which of the following ultrasound features is LEAST associated with malignancy in thyroid nodules?
+   A) Microcalcifications
+   B) Irregular margins
+   C) Hyperechogenicity
+   D) Taller-than-wide shape
+   Answer: C
+
+
+3) What is the significance of a spongiform appearance in a thyroid nodule?
+   A) It indicates a benign nodule
+   B) It is associated with a higher risk of malignancy
+   C) It suggests a cystic nodule
+   D) It indicates a hyperfunctional nodule
+   Answer: A
+
+
+4) What is the role of elastography in the evaluation of thyroid nodules?
+   A) To measure the size of the nodule
+   B) To assess the stiffness of the nodule, which may indicate malignancy
+   C) To determine the iodine uptake of the nodule
+   D) To evaluate the vascularity of the nodule
+   Answer: B
+
+
+
+
+5) Why is fine needle aspiration (FNA) preferred over core needle biopsy for initial evaluation of thyroid nodules?
+   A) FNA is less invasive and has fewer complications
+   B) Core needle biopsy provides less diagnostic information
+   C) FNA is more accurate in diagnosing malignancy
+   D) Core needle biopsy is not recommended for thyroid nodules
+   Answer: A
+
+
+6) Which imaging modality is preferred for the initial evaluation of a thyroid nodule?
+   A) MRI
+   B) CT scan
+   C) Ultrasound
+   D) PET/CT
+   Answer: C
+
+
+7. What is the most common histological subtype of thyroid cancer?
+   A) Follicular thyroid carcinoma
+   B) Anaplastic thyroid carcinoma
+   C) Papillary thyroid carcinoma
+   D) Medullary thyroid carcinoma
+   Answer: C
+
+
+
+
+8. What is the role of intraoperative frozen section in the management of thyroid nodules?
+    A) To measure thyroid hormone levels
+    B) To provide immediate pathological assessment and guide surgical decisions
+    C) To determine the iodine uptake of the nodule
+    D) To evaluate the vascularity of the nodule
+    Answer: B
+
+
+9. Why is the detection of a desmoplastic stromal reaction (DSR) important in the management of medullary thyroid carcinoma?
+    A) It indicates a benign condition
+    B) It suggests a more aggressive tumor and may influence the extent of surgery
+    C) It suggests the use of radioiodine therapy is contraindicated
+    D) It indicates the need for immediate chemotherapy
+    Answer: B
+
+
+-----------------------------------------------------------
+II. NUCLEAR MEDICINE AND IMAGING
+-----------------------------------------------------------
+
+
+10. What is the primary purpose of thyroid scintigraphy in the evaluation of thyroid nodules?
+    A) To detect malignant nodules directly
+    B) To identify autonomous nodules as benign thyroid nodules
+    C) To determine the exact size of nodules
+    D) To evaluate lymph node metastases
+    Answer: B
+
+
+
+
+11. For evaluation of substernal or ectopic thyroid nodules, which radionuclide imaging is preferred?
+    A) Technetium-99m pertechnetate
+    B) Iodine-131
+    C) Iodine-123
+    D) Fluorine-18 FDG
+    Answer: C
+
+
+12. What is the clinical significance of a hypofunctional nodule on thyroid scintigraphy?
+    A) It always indicates a benign lesion
+    B) It may have a higher malignant potential warranting further evaluation
+    C) It rules out malignancy conclusively
+    D) It indicates hyperthyroidism
+    Answer: B
+
+
+
+
+
+
+13. What does positive [¹⁸F]FDG-PET uptake indicate in a patient with elevated thyroglobulin but a negative radioiodine scan?
+    A) It confirms benign residual thyroid tissue
+    B) It suggests possible radioiodine-refractory disease
+    C) It rules out metastatic spread completely
+    D) It indicates an incorrect thyroglobulin measurement
+    Answer: B
+
+
+14. What explains the commonly observed phenomenon that lesion is visible on radioiodine scans but not on [¹⁸F]FDG-PET or vice versa in thyroid cancer?
+    A) Administrative errors in scan interpretation
+    B) Tumor dedifferentiation with loss of iodine uptake and increased glucose metabolism
+    C) Patient preparation differences affecting both scan types
+    D) Random variation in metastatic patterns
+    Answer: B
+
+
+15. What is the primary reason for performing a post-therapy whole-body scan after radioiodine treatment?
+    A) To assess salivary gland uptake only
+    B) To evaluate the size of the thyroid remnant
+    C) To detect unexpected areas of radioiodine uptake indicating residual disease
+    D) To calculate TSH levels directly
+    Answer: C
+
+
+16. Which unique information can a diagnostic radioiodine scan provide in thyroid cancer management compared to other imaging methods?
+    A) Detailed vascular supply of the lesion
+    B) Functional iodine-uptake status of residual or metastatic disease
+    C) Genetic analysis of tumor cells
+    D) Complete morphological details without other scans
+    Answer: B
+
+
+17. Which imaging modality is preferred for staging anaplastic thyroid carcinoma?
+    A) Ultrasound
+    B) CT without contrast
+    C) [¹⁸F]FDG-PET/CT
+    D) DOPA-PET/CT
+    Answer: C
+
+
+-----------------------------------------------------------
+III. RADIOIODINE THERAPY
+-----------------------------------------------------------
+
+
+18. What is the primary goal of initial adjuvant radioiodine therapy (RIT) in differentiated thyroid carcinoma?
+    A) To induce permanent hypothyroidism
+    B) To eliminate occult iodine-storing tumor tissue and ablate remaining thyroid tissue
+    C) To prevent the development of thyroglobulin antibodies
+    D) To reduce the size of the primary tumor
+    Answer: B
+
+
+19. Which of the following is NOT a typical indication for radioiodine therapy in differentiated thyroid carcinoma?
+    A) T3 tumor with minimal extrathyroidal extension
+    B) Lymph node metastases
+    C) Follicular thyroid carcinoma >1 cm
+    D) T1a papillary thyroid carcinoma without risk factors
+    Answer: D
+
+
+20. What is the recommended preparation approach for achieving adequate TSH stimulation before radioiodine therapy?
+    A) Recombinant TSH stimulation only
+    B) Thyroid hormone withdrawal only
+    C) Either recombinant TSH stimulation or thyroid hormone withdrawal based on individual factors
+    D) Low-iodine diet alone
+    Answer: C
+
+
+21. What is the recommended preparation for patients with hypopituitarism who cannot achieve adequate TSH levels via withdrawal?
+    A) Administration of recombinant TSH to artificially elevate TSH
+    B) Low-iodine diet only
+    C) Administration of T3 only
+    D) Combination of T3 and T4
+    Answer: A
+
+
+22. What is the primary purpose of a low-iodine diet before radioiodine therapy?
+    A) To reduce the risk of side effects
+    B) To enhance the uptake of radioiodine by thyroid tissue
+    C) To improve the patient's overall health
+    D) To decrease the size of thyroid nodules
+    Answer: B
+
+
+23. What is the primary purpose of performing a diagnostic whole-body radioiodine scan before radioiodine therapy?
+    A) To measure thyroid hormone levels
+    B) To detect residual thyroid tissue or metastases
+    C) To evaluate the patient's overall health
+    D) To determine the size of the thyroid gland
+    Answer: B
+
+
+24. Why is it important to avoid iodine-containing contrast agents before radioiodine therapy?
+    A) They reduce the effectiveness of radioiodine therapy by saturating the thyroid tissue with iodine
+    B) They increase the risk of side effects
+    C) They improve the patient's overall health
+    D) They decrease the size of thyroid nodules
+    Answer: A
+
+
+25. How is radioiodine-refractory disease most accurately described in differentiated thyroid carcinoma?
+    A) Tumors that always respond to added TSH
+    B) Tumors that do not require TSH stimulation
+    C) Tumors that no longer take up or respond to iodine-based therapy
+    D) Tumors fully resected without need for ablation
+    Answer: C
+
+
+26. What is the most appropriate prevention of sialadenitis during radioiodine therapy?
+    A) Immediate cessation of therapy
+    B) No intervention is recommended
+    C) Salivary gland stimulation (e.g., sour candies), hydration, and supportive care
+    D) High-dose corticosteroids
+    Answer: C
+
+
+-----------------------------------------------------------
+IV. TREATMENT APPROACHES
+-----------------------------------------------------------
+
+
+
+
+27. What is the rationale for using lobectomy instead of total thyroidectomy in certain cases of differentiated thyroid carcinoma?
+    A) Lobectomy is less invasive and has fewer complications
+    B) Lobectomy is more effective in removing all cancerous tissue
+    C) Total thyroidectomy is only recommended for anaplastic thyroid carcinoma
+    D) Lobectomy allows for better postoperative monitoring of thyroglobulin levels
+    Answer: A
+
+
+28. Why is central compartment lymph node dissection recommended in certain cases of papillary thyroid carcinoma?
+    A) To reduce the risk of recurrence by removing potentially metastatic lymph nodes
+    B) To improve thyroid hormone levels
+    C) To decrease the size of the primary tumor
+    D) To avoid the need for radioiodine therapy
+    Answer: A
+
+
+29. What TSH level management goal is typically recommended in low-risk DTC patient follow-up after total thyroidectomy?
+    A) Profound TSH suppression (<0.1 mU/L) for all cases
+    B) TSH kept below 10 mU/L
+    C) Age-dependent range
+    D) Mild TSH suppression while balancing quality of life
+    Answer: D
+
+
+-----------------------------------------------------------
+V. MOLECULAR TESTING AND BIOMARKERS
+-----------------------------------------------------------
+
+
+30. In which situation is RET germline mutation testing recommended?
+    A) All follicular thyroid carcinomas
+    B) All medullary thyroid carcinomas
+    C) Only in patients with family history of MEN2
+    D) Only in patients with bilateral MTC
+    Answer: B
+
+
+31. Which molecular alteration is most frequently found in anaplastic thyroid carcinoma?
+    A) RET fusion
+    B) NTRK fusion
+    C) TP53 mutation
+    D) ALK translocation
+    Answer: C
+
+
+32. Which mutation is considered diagnostic for papillary thyroid carcinoma when combined with appropriate cytomorphological features?
+    A) TERT promoter mutation
+    B) BRAF V600E mutation
+    C) RAS mutation
+    D) PAX8/PPARγ rearrangement
+    Answer: B
+
+
+
+
+-----------------------------------------------------------
+VI. FOLLOW-UP CARE
+-----------------------------------------------------------
+
+
+33. What is the most reliable tumor marker for follow-up of medullary thyroid carcinoma?
+    A) Thyroglobulin
+    B) Calcitonin
+    C) CEA
+    D) TSH
+    Answer: B
+
+
+34. How often should patients with biochemically cured medullary thyroid carcinoma undergo follow-up examinations in the first 2 years?
+    A) Monthly
+    B) Every 3 months
+    C) Every 6 months
+    D) Annually
+    Answer: B
+
+
+35. What is the primary purpose of measuring serum thyroglobulin (Tg) levels in the follow-up of differentiated thyroid carcinoma patients?
+    A) To assess the patient's thyroid hormone replacement dosage
+    B) To detect persistent or recurrent disease
+    C) To monitor for side effects of radioiodine therapy
+    D) To evaluate the patient's psychosocial well-being
+    Answer: B
+
+
+
+
+36. What is the role of neck ultrasound in the follow-up of patients with differentiated thyroid carcinoma?
+    A) To monitor for recurrence or metastasis
+    B) To assess thyroid function
+    C) To evaluate the effectiveness of radioiodine therapy
+    D) To measure serum thyroglobulin levels
+    Answer: A
+
+
+37. How does the presence of thyroglobulin antibodies (TAK) affect the interpretation of serum thyroglobulin levels?
+    A) It has no effect on the interpretation
+    B) It can interfere with the measurement and lead to falsely low thyroglobulin levels
+    C) It suggests a benign condition
+    D) It indicates the need for immediate chemotherapy
+    Answer: B
+
+
+38. What is the role of PET/CT with [¹⁸F]FDG in the follow-up of differentiated thyroid carcinoma?
+    A) To measure thyroid hormone levels
+    B) To detect residual thyroid tissue or metastases, especially in radioiodine-refractory cases
+    C) To evaluate the patient's overall health
+    D) To determine the size of the thyroid gland
+    Answer: B
+
+
+39. What is the role of TSH suppression in the long-term management of patients with differentiated thyroid carcinoma?
+    A) To reduce the risk of recurrence by inhibiting the growth of residual thyroid cells
+    B) To improve thyroid hormone levels
+    C) To decrease the size of thyroid nodules
+    D) To enhance the uptake of radioiodine
+    Answer: A
+
+
+-----------------------------------------------------------
+VII. SPECIAL SITUATIONS
+-----------------------------------------------------------
+
+
+40. Which primary tumor most commonly metastasizes to the thyroid gland in clinical series?
+    A) Lung cancer
+    B) Breast cancer
+    C) Renal cell carcinoma
+    D) Colorectal cancer
+    Answer: A
+
+
+41. What is the most common histological type of primary thyroid lymphoma?
+    A) MALT lymphoma
+    B) Follicular lymphoma
+    C) High-grade B-cell lymphoma (DLBCL)
+    D) Hodgkin lymphoma
+    Answer: C
+
+
+42. How should thyroid nodules be managed in patients with specific risk factors (neck irradiation, MEN2)?
+    A) Immediate surgery in all cases
+    B) Risk-adapted evaluation with FNA and genetic testing as needed
+    C) Observation with annual ultrasound is sufficient
+    D) Prophylactic total thyroidectomy
+    Answer: B
+
+
+43. What is the significance of detecting a RET proto-oncogene mutation in a patient with medullary thyroid carcinoma?
+    A) It confirms a diagnosis of familial medullary thyroid carcinoma
+    B) It indicates a benign condition
+    C) It suggests the need for less aggressive treatment
+    D) It rules out the possibility of metastasis
+    Answer: A
+
+
+-----------------------------------------------------------
+VIII. EPIDEMIOLOGY AND RISK FACTORS
+-----------------------------------------------------------
+
+
+44. Which of the following is the most well-established environmental risk factor for thyroid carcinoma?
+    A) Iodine excess
+    B) Previous radiotherapy to the neck region
+    C) Excessive alcohol consumption
+    D) Exposure to pesticides
+    Answer: B
+
+
+45. Which genetic syndrome is associated with an increased risk of developing medullary thyroid carcinoma?
+    A) Cowden syndrome
+    B) Multiple endocrine neoplasia type 2 (MEN2)
+    C) Werner syndrome
+    D) Familial adenomatous polyposis
+    Answer: B
+
+
+
+
+46. Why is iodine deficiency considered a risk factor for follicular thyroid carcinoma?
+    A) It leads to increased TSH levels, which can stimulate thyroid cell growth
+    B) It directly causes genetic mutations
+    C) It reduces the effectiveness of thyroid medications
+    D) It decreases the size of thyroid nodules
+    Answer: A
+
+
+
+
+47. What is the most common cause of thyroid nodules in iodine-sufficient regions?
+    A) Thyroid cancer
+    B) Benign colloid nodules
+    C) Thyroiditis
+    D) Hyperthyroidism
+    Answer: B
+-----------------------------------------------------------
+IX. OTHER
+-----------------------------------------------------------
+
+
+48. Which vascularization pattern is considered the best single ultrasound criterion for assessing malignancy in lymph nodes?
+    A) Hilar vascularization
+    B) Mixed vascularization
+    C) Peripheral vascularization
+    D) Central vascularization
+Correct Answer: C
+
+
+
+
+49. Which condition is associated with comparatively high thyroglobulin levels as described in the guideline?
+    A) Benign thyroid nodules
+    B) Lymphogenous metastatic tumors
+    C) Radioiodine-sensitive thyroid carcinomas
+    D) Both B and C
+Correct Answer: D
+
+
+
+
+50. What is identified as the decisive diagnostic parameter in ⁹ᵐTc-MIBI imaging according to the guideline?
+    A) Positive predictive value
+    B) Negative predictive value
+    C) Sensitivity
+    D) Specificity
+Correct Answer: B
+
+
+51. What is the recommended next diagnostic step for a thyroid nodule (>1 cm) with focally increased [¹⁸F]-FDG uptake?
+    A) Immediate surgical resection
+    B) Further sonographic clarification
+    C) CT scan of the neck
+    D) Observation without further tests
+Correct Answer: B
+
+
+52.Which of the following is NOT identified as a prognostic factor for contralateral lymph node involvement according to the meta-analysis?
+    A) Age under 45 years
+    B) Tumor size > 1 cm
+    C) Female gender
+    D) Ipsilateral lymph node metastases
+Correct Answer: C 
+
+
+
+
+53. Under which of the following conditions can prophylactic lymph node dissection be omitted?
+    A) When there is no sonographic or intraoperative evidence of lymph node metastases and no known risk factors
+    B) When the patient is younger than 25 years or older than 55 years
+    C) In male patients with a positive family history
+    D) When extrathyroidal spread is present
+Correct Answer: A 
+
+
+
+
+54. According to the guideline fragment, for which of the following cases is completion surgery with removal of the residual thyroid gland indicated?
+    A) Unifocal Papillary thyroid carcinomas < 1 cm in diameter
+    B) Intrathyroidal spread with R1 resection
+    C) Papillary thyroid carcinomas > 1 cm in diameteror multifocal carcinomas
+    D) Only in cases with confirmed distant metastases
+Correct Answer: B or C 
+
+
+
+
+55. Which of the following is NOT mentioned as a risk factor for increased probability of lymph node metastases in thyroid cancer?
+    A) Multifocality
+    B) Aggressive tumor subtype
+    C) Tumor diameter of 6 mm or more
+    D) Hyperfunctioning thyroid nodule
+Correct Answer: D
