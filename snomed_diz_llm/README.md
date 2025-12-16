@@ -6,11 +6,24 @@ This folder contains a complete snapshot of the SNOMED + DiZ LLM experiment used
 ## Components
 
 ### 1. Knowledge Graph (`KnowledgeGraph-info/`)
-This folder contains scripts and metadata used to build the medical knowledge graph.
 
-- Data sources:
-  - SNOMED CT
-  - UMLS (MRCONSO, MRREL, MRSTY)
+This project uses a large-scale medical knowledge graph constructed from
+SNOMED CT and UMLS resources. Due to licensing and file size constraints,
+raw source files (e.g. MRCONSO.RRF, MRREL.RRF) are not included in this repository.
+
+### Data Sources
+- SNOMED CT (Transitive Closure files)
+- UMLS Metathesaurus:
+  - MRCONSO.RRF
+  - MRREL.RRF
+  - MRSTY.RRF
+- UMLS Semantic Groups
+
+### Pipeline Overview
+1. Parse UMLS concepts and semantic types
+2. Import SNOMED CT relations
+3. Normalize entities and relations
+4. Build a unified Neo4j knowledge graph
 
 - Graph construction scripts:
   - `build_big_kg.py`
