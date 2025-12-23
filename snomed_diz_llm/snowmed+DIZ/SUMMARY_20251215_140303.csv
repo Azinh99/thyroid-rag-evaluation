@@ -1,0 +1,4 @@
+method,accuracy
+faiss,89.8
+graph,81.63
+hybrid,91.84
