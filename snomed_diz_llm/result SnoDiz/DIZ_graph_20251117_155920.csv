@@ -1,0 +1,56 @@
+question,predicted,correct,is_correct
+Which sonographic feature has the highest specificity for thyroid malignancy?,C,['C'],1
+Which of the following ultrasound features is LEAST associated with malignancy in thyroid nodules?,C,['C'],1
+What is the significance of a spongiform appearance in a thyroid nodule?,A,['A'],1
+What is the role of elastography in the evaluation of thyroid nodules?,B,['B'],1
+Why is fine needle aspiration (FNA) preferred over core needle biopsy for initial evaluation of thyroid nodules?,A,['A'],1
+Which imaging modality is preferred for the initial evaluation of a thyroid nodule?,C,['C'],1
+What is the most common histological subtype of thyroid cancer?,C,['C'],1
+What is the role of intraoperative frozen section in the management of thyroid nodules?,B,['B'],1
+Why is the detection of a desmoplastic stromal reaction (DSR) important in the management of medullary thyroid carcinoma?,B,['B'],1
+What is the primary purpose of thyroid scintigraphy in the evaluation of thyroid nodules?,B,['B'],1
+"For evaluation of substernal or ectopic thyroid nodules, which radionuclide imaging is preferred?",A,['C'],0
+What is the clinical significance of a hypofunctional nodule on thyroid scintigraphy?,B,['B'],1
+What does positive [¹⁸F]FDG-PET uptake indicate in a patient with elevated thyroglobulin but a negative radioiodine scan?,B,['B'],1
+What explains the commonly observed phenomenon that lesion is visible on radioiodine scans but not on [¹⁸F]FDG-PET or vice versa in thyroid cancer?,B,['B'],1
+What is the primary reason for performing a post-therapy whole-body scan after radioiodine treatment?,C,['C'],1
+Which unique information can a diagnostic radioiodine scan provide in thyroid cancer management compared to other imaging methods?,B,['B'],1
+Which imaging modality is preferred for staging anaplastic thyroid carcinoma?,C,['C'],1
+What is the primary goal of initial adjuvant radioiodine therapy (RIT) in differentiated thyroid carcinoma?,B,['B'],1
+Which of the following is NOT a typical indication for radioiodine therapy in differentiated thyroid carcinoma?,D,['D'],1
+What is the recommended preparation approach for achieving adequate TSH stimulation before radioiodine therapy?,A,['C'],0
+What is the recommended preparation for patients with hypopituitarism who cannot achieve adequate TSH levels via withdrawal?,A,['A'],1
+What is the primary purpose of a low-iodine diet before radioiodine therapy?,B,['B'],1
+What is the primary purpose of performing a diagnostic whole-body radioiodine scan before radioiodine therapy?,B,['B'],1
+Why is it important to avoid iodine-containing contrast agents before radioiodine therapy?,A,['A'],1
+How is radioiodine-refractory disease most accurately described in differentiated thyroid carcinoma?,C,['C'],1
+What is the most appropriate prevention of sialadenitis during radioiodine therapy?,C,['C'],1
+What is the rationale for using lobectomy instead of total thyroidectomy in certain cases of differentiated thyroid carcinoma?,A,['A'],1
+Why is central compartment lymph node dissection recommended in certain cases of papillary thyroid carcinoma?,A,['A'],1
+What TSH level management goal is typically recommended in low-risk DTC patient follow-up after total thyroidectomy?,D,['D'],1
+In which situation is RET germline mutation testing recommended?,A,['B'],0
+Which molecular alteration is most frequently found in anaplastic thyroid carcinoma?,C,['C'],1
+Which mutation is considered diagnostic for papillary thyroid carcinoma when combined with appropriate cytomorphological features?,B,['B'],1
+What is the most reliable tumor marker for follow-up of medullary thyroid carcinoma?,B,['B'],1
+How often should patients with biochemically cured medullary thyroid carcinoma undergo follow-up examinations in the first 2 years?,A,['B'],0
+What is the primary purpose of measuring serum thyroglobulin (Tg) levels in the follow-up of differentiated thyroid carcinoma patients?,B,['B'],1
+What is the role of neck ultrasound in the follow-up of patients with differentiated thyroid carcinoma?,A,['A'],1
+How does the presence of thyroglobulin antibodies (TAK) affect the interpretation of serum thyroglobulin levels?,B,['B'],1
+What is the role of PET/CT with [¹⁸F]FDG in the follow-up of differentiated thyroid carcinoma?,B,['B'],1
+What is the role of TSH suppression in the long-term management of patients with differentiated thyroid carcinoma?,A,['A'],1
+Which primary tumor most commonly metastasizes to the thyroid gland in clinical series?,A,['A'],1
+What is the most common histological type of primary thyroid lymphoma?,A,['C'],0
+"How should thyroid nodules be managed in patients with specific risk factors (neck irradiation, MEN2)?",B,['B'],1
+What is the significance of detecting a RET proto-oncogene mutation in a patient with medullary thyroid carcinoma?,A,['A'],1
+Which of the following is the most well-established environmental risk factor for thyroid carcinoma?,B,['B'],1
+Which genetic syndrome is associated with an increased risk of developing medullary thyroid carcinoma?,B,['B'],1
+Why is iodine deficiency considered a risk factor for follicular thyroid carcinoma?,A,['A'],1
+What is the most common cause of thyroid nodules in iodine-sufficient regions?,B,['B'],1
+Which vascularization pattern is considered the best single ultrasound criterion for assessing malignancy in lymph nodes?,C,['C'],1
+Which condition is associated with comparatively high thyroglobulin levels as described in the guideline?,C,['D'],0
+What is identified as the decisive diagnostic parameter in ⁹ᵐTc-MIBI imaging according to the guideline?,A,['B'],0
+What is the recommended next diagnostic step for a thyroid nodule (>1 cm) with focally increased [¹⁸F]-FDG uptake?,B,['B'],1
+Which of the following is NOT identified as a prognostic factor for contralateral lymph node involvement according to the meta-analysis?,A,['C'],0
+Under which of the following conditions can prophylactic lymph node dissection be omitted?,A,['A'],1
+"According to the guideline fragment, for which of the following cases is completion surgery with removal of the residual thyroid gland indicated?",C,"['B', 'C']",1
+Which of the following is NOT mentioned as a risk factor for increased probability of lymph node metastases in thyroid cancer?,D,['D'],1
