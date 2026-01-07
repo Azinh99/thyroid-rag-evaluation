@@ -1,41 +1,41 @@
-from neo4j import GraphDatabase
-from llm_df import chat_with_llm
+# rag_graph.py
 import os
+from neo4j import GraphDatabase
+from dotenv import load_dotenv
 
-# Connect Neo4j
-URI = os.getenv("NEO4J_URI")
-USER = os.getenv("NEO4J_USER")
-PASSWORD = os.getenv("NEO4J_PASSWORD")
-driver = GraphDatabase.driver(URI, auth=(USER, PASSWORD))
+from llm_df import chat_with_llm
+from utils import extract_keywords
 
+load_dotenv()
 
-def retrieve_with_graph(question, opts, model):
+driver = GraphDatabase.driver(
+    os.getenv("NEO4J_URI"),
+    auth=(os.getenv("NEO4J_USER"), os.getenv("NEO4J_PASSWORD")),
+)
 
-    with driver.session() as session:
-        rows = session.run(
+def retrieve_with_graph(question, opts, model=None):
+    kws = extract_keywords(question, max_k=12)
+
+    with driver.session(database=os.getenv("NEO4J_DB")) as s:
+        rows = s.run(
             """
             MATCH (a)-[r]->(b)
-            RETURN a.name + " " + r.type + " " + b.name AS ctx
-            LIMIT 10
-            """
+            WHERE any(k IN $kws WHERE
+                toLower(a.name) CONTAINS k OR
+                toLower(b.name) CONTAINS k OR
+                toLower(r.type) CONTAINS k
+            )
+            RETURN a.name, r.type, b.name
+            LIMIT 25
+            """,
+            kws=kws,
         ).values()
 
-    # clean None
-    ctx_list = []
-    for r in rows:
-        if r[0] is not None:
-            ctx_list.append(r[0])
-
-    if not ctx_list:
-        ctx = ""
-    else:
-        ctx = "\n".join(ctx_list)
+    graph_ctx = "\n".join(f"{h} {r} {t}" for h, r, t in rows)
 
     prompt = f"""
-You are a medical QA model. Use the knowledge graph context to answer the question.
-
-CONTEXT:
-{ctx}
+GRAPH CONTEXT:
+{graph_ctx}
 
 QUESTION:
 {question}
@@ -45,8 +45,5 @@ A) {opts['A']}
 B) {opts['B']}
 C) {opts['C']}
 D) {opts['D']}
-
-Answer ONLY with: A, B, C, or D.
 """
-
-    return chat_with_llm(prompt, model)
+    return chat_with_llm(prompt)
