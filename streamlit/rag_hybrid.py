@@ -1,43 +1,56 @@
-from rag_faiss import retrieve_with_faiss, load_index, build_prompt
+# rag_hybrid.py
+import os, re
+from neo4j import GraphDatabase
+from rag_faiss import load_index
 from utils import extract_keywords
 from llm_df import chat_with_llm
 
-def retrieve_with_hybrid(question, opts, model):
+driver = GraphDatabase.driver(
+    os.getenv("NEO4J_URI"),
+    auth=(os.getenv("NEO4J_USER"), os.getenv("NEO4J_PASSWORD")),
+)
 
-    # 1) Keywords
-    kws = extract_keywords(question)
-    kw_query = question + " " + " ".join(kws)
-
-    # 2) FAISS retrieval
+def retrieve_with_hybrid(q, opts, model=None):
+    kws = extract_keywords(q)
     db = load_index()
-    retriever = db.as_retriever(search_kwargs={"k": 8})
-    docs = retriever.get_relevant_documents(kw_query)
 
-    if not docs:
-        return retrieve_with_faiss(question, opts, model)
+    docs = db.as_retriever(search_kwargs={"k": 8}).get_relevant_documents(
+        q + " " + " ".join(kws)
+    )
+    chunks = [d.page_content for d in docs[:4]]
 
-    raw_contexts = list(dict.fromkeys([d.page_content for d in docs]))
-    ctx = "\n\n".join(raw_contexts[:4])
+    terms = set()
+    for c in chunks:
+        terms.update(re.findall(r"[A-Za-z]{4,}", c.lower()))
 
-    # 3) Mini reranker
-    rerank_prompt = f"""
-Rank documents for answering the question.
+    with driver.session(database=os.getenv("NEO4J_DB")) as s:
+        rows = s.run(
+            """
+            MATCH (a)-[r]->(b)
+            WHERE any(k IN $t WHERE toLower(a.name) CONTAINS k)
+            RETURN a.name,r.type,b.name LIMIT 30
+            """,
+            t=list(terms),
+        ).values()
+
+    graph = "\n".join(f"{h} {r} {t}" for h, r, t in rows)
+    text = "\n---\n".join(chunks)
+
+    prompt = f"""
+TEXT CONTEXT:
+{text}
+
+GRAPH CONTEXT:
+{graph}
 
 QUESTION:
-{question}
+{q}
 
-DOCUMENTS:
-{ctx}
-
-Return ONLY one number: 1, 2, 3, or 4.
+OPTIONS:
+A) {opts['A']}
+B) {opts['B']}
+C) {opts['C']}
+D) {opts['D']}
 """
-    rerank_raw = chat_with_llm(rerank_prompt, model)
 
-    if rerank_raw in ["1", "2", "3", "4"]:
-        chosen = raw_contexts[int(rerank_raw) - 1]
-    else:
-        chosen = ctx
-
-    # 4) Final QA
-    final_prompt = build_prompt(question, opts, chosen)
-    return chat_with_llm(final_prompt, model)
+    return chat_with_llm(prompt)
