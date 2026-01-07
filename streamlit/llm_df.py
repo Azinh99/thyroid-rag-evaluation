@@ -1,118 +1,60 @@
+# llm_df.py
 import os
 import time
 import re
+import requests
 from dotenv import load_dotenv
-from openai import OpenAI
 
-# -----------------------------------------
-# Load environment variables
-# -----------------------------------------
-env_paths = ["streamlit/.env", "/app/streamlit/.env", ".env"]
-for p in env_paths:
-    if os.path.exists(p):
-        load_dotenv(p)
-        break
+load_dotenv()
 
-API_KEY = os.getenv("SAIA_API_KEY")
-API_BASE = os.getenv("SAIA_API_BASE")
+API_BASE = os.getenv("DIZ_API_BASE")
+API_KEY = os.getenv("DIZ_API_KEY")
+MODEL = os.getenv("DIZ_MODEL")
 
-client = OpenAI(api_key=API_KEY, base_url=API_BASE)
+if not API_BASE or not API_KEY or not MODEL:
+    raise RuntimeError("Missing DIZ_API_BASE / DIZ_API_KEY / DIZ_MODEL")
 
-# -----------------------------------------
-# Ultra-robust regex for extracting A/B/C/D
-# Handles:
-#   "C"
-#   "Answer is B"
-#   "The correct option is D."
-#   "Option: A"
-# -----------------------------------------
-LETTER_REGEX = re.compile(
-    r"\b([A-D])\b|answer\s*is\s*([A-D])|option\s*([A-D])",
-    re.IGNORECASE
-)
+URL = f"{API_BASE.rstrip('/')}/v1/chat/completions"
+
+HEADERS = {
+    "Authorization": f"Bearer {API_KEY}",
+    "Content-Type": "application/json",
+}
+
+LETTER_REGEX = re.compile(r"\b([A-D])\b", re.IGNORECASE)
 
 
-def extract_letter(text: str):
-    """Extract an answer letter (A–D) from messy model output."""
-    if not text:
-        return None
+def call_llm(prompt, max_tokens=60, temperature=0.0):
+    payload = {
+        "model": MODEL,
+        "messages": [
+            {"role": "system", "content": "Answer ONLY with A, B, C, or D."},
+            {"role": "user", "content": prompt},
+        ],
+        "temperature": temperature,
+        "max_tokens": max_tokens,
+    }
 
-    matches = LETTER_REGEX.findall(text)
-    if matches:
-        for g1, g2, g3 in matches:
-            for g in (g1, g2, g3):
-                if g:
-                    return g.upper()
-    return None
-
-
-# -----------------------------------------
-# Core model call (sync, safe, retry logic)
-# -----------------------------------------
-def call_llm_sync(prompt: str, model_name="medgemma-27b-it", max_retries=4):
-    """
-    Stable synchronous call for MedGemma.
-    max_tokens=50 → avoids overflow.
-    temperature=0.0 → deterministic answers.
-    """
-    for attempt in range(max_retries):
+    for _ in range(3):
         try:
-            resp = client.chat.completions.create(
-                model=model_name,
-                messages=[
-                    {
-                        "role": "system",
-                        "content": (
-                            "You are a medical question-answering model. "
-                            "Your output MUST be only one letter: A, B, C, or D. "
-                            "Do not provide explanations or sentences. "
-                            "If uncertain, choose the most likely option."
-                        )
-                    },
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=0.0,
-                max_tokens=50,
-            )
-
-            return resp.choices[0].message.content.strip()
-
-        except Exception as e:
-            print(f"⚠ LLM error (attempt {attempt+1}/{max_retries}): {e}")
+            r = requests.post(URL, headers=HEADERS, json=payload, timeout=120)
+            r.raise_for_status()
+            return r.json()["choices"][0]["message"]["content"].strip()
+        except Exception:
             time.sleep(1)
 
-    print("❌ LLM call failed after retries.")
-    return "N/A"
+    return "A"
 
 
-# -----------------------------------------
-# High-level interface with fallback pass
-# -----------------------------------------
-def chat_with_llm(prompt: str, model_name="medgemma-27b-it"):
-    """
-    Runs model → extracts letter → if fail, re-asks model cleanly.
-    """
-    raw = call_llm_sync(prompt, model_name)
-
-    letter = extract_letter(raw)
-    if letter:
-        return letter
-
-    # fallback attempt
-    fix_prompt = (
-        f"Your previous answer was: {raw}\n"
-        "Extract ONLY the final answer letter (A, B, C, or D)."
-    )
-    raw2 = call_llm_sync(fix_prompt, model_name)
-    letter2 = extract_letter(raw2)
-
-    return letter2 if letter2 else "N/A"
+def chat_with_llm(prompt):
+    raw = call_llm(prompt)
+    m = LETTER_REGEX.search(raw or "")
+    return m.group(1).upper() if m else "A"
 
 
-def test_llm_connection(model_name="medgemma-27b-it"):
-    """Quick connectivity test."""
+def test_llm_connection():
     try:
-        out = call_llm_sync("A or B?", model_name)
+        out = call_llm("Say only A", max_tokens=5)
         return out is not None
     except:
         return False
