@@ -1,0 +1,4 @@
+method,accuracy,accuracy_percent
+faiss,0.909091,90.91
+graph,0.890909,89.09
+hybrid,0.927273,92.73
