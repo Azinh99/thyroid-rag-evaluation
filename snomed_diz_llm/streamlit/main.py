@@ -1,73 +1,58 @@
 import os
 import argparse
+from pathlib import Path
 
 from llm_df import extract_kg
 from utils import (
     get_driver,
+    ensure_domain_schema,
     chunk_text,
     clean_triple,
-    insert_triples_safe
+    upsert_chunk,
+    insert_triples_safe,
 )
 
-# ---------- SAFE COPY (NO DEADLOCK) ----------
-def safe_copy_to_tmp(src_path):
-    """
-    Copy file from Docker-mounted volume to /tmp using
-    manual chunked read/write to avoid macOS deadlock.
-    """
-    filename = os.path.basename(src_path)
-    dst_path = os.path.join("/tmp", filename)
-
-    with open(src_path, "rb") as src, open(dst_path, "wb") as dst:
-        while True:
-            chunk = src.read(1024 * 1024)  # 1MB buffer
-            if not chunk:
-                break
-            dst.write(chunk)
-
-    return dst_path
-
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--input_folder", type=str, default="data")
+    parser.add_argument("--input_folder", type=str, default=str(PROJECT_ROOT / "data"))
     args = parser.parse_args()
 
+    input_folder = Path(args.input_folder)
+    if not input_folder.exists() or not input_folder.is_dir():
+        raise RuntimeError(f"Input folder not found: {input_folder}")
+
     driver = get_driver()
+    ensure_domain_schema(driver)
 
-    for filename in sorted(os.listdir(args.input_folder)):
-        if not filename.endswith(".txt"):
-            continue
+    chunk_words = int(os.getenv("CHUNK_WORDS", "300"))
 
-        src_path = os.path.join(args.input_folder, filename)
-        print(f"\n📄 Processing: {filename}")
-
-        # 🔑 CRITICAL FIX: copy to /tmp first
-        tmp_path = safe_copy_to_tmp(src_path)
-
-        with open(tmp_path, "r", encoding="utf-8", errors="ignore") as f:
+    for file_path in sorted(input_folder.glob("*.txt")):
+        filename = file_path.name
+        with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
             text = f.read()
 
-        chunks = chunk_text(text)
-        print(f"Chunks: {len(chunks)}")
+        chunks = chunk_text(text, max_words=chunk_words)
 
-        all_triples = []
+        for i, ch in enumerate(chunks):
+            chunk_id = f"{filename}::chunk_{i:04d}"
+            upsert_chunk(driver, chunk_id, ch, filename)
 
-        for i, chunk in enumerate(chunks, 1):
-            print(f"  chunk {i}/{len(chunks)}")
-
-            triples = extract_kg(chunk)
-            if not triples:
+            triples_raw = extract_kg(ch)
+            if not triples_raw:
                 continue
 
-            for t in triples:
-                clean = clean_triple(t)
-                if clean:
-                    all_triples.append(clean)
+            cleaned = []
+            for t in triples_raw:
+                ct = clean_triple(t)
+                if ct:
+                    cleaned.append(ct)
 
-        print(f"🔵 Inserting triples for: {filename}")
-        insert_triples_safe(driver, all_triples, filename)
+            if cleaned:
+                insert_triples_safe(driver, cleaned, filename, chunk_id=chunk_id)
 
+    driver.close()
 
 if __name__ == "__main__":
     main()
