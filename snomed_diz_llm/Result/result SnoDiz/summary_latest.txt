@@ -1,3 +1,0 @@
-FAISS (text): 93.88%
-Graph: 91.84%
-Hybrid: 97.96%
