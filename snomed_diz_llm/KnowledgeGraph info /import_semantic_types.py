@@ -1,32 +1,25 @@
-# import_semantic_types.py
 import os
 
 SEM_DIR = "KnowledgeGraph-info/kb_sources/semantic"
 
 def import_semantic_types(driver):
     sem_path = os.path.join(SEM_DIR, "SemGroups.txt")
-
     if not os.path.exists(sem_path):
-        raise FileNotFoundError("SemGroups.txt not found")
+        raise FileNotFoundError(f"SemGroups.txt not found at: {sem_path}")
 
-    print("📥 Importing Semantic Groups...")
-
-    with driver.session() as session:
-        with open(sem_path, "r", errors="ignore") as f:
+    # Expected format in your current codebase: parts[0]=CUI, parts[3]=semantic group/type
+    with driver.session() as s:
+        with open(sem_path, "r", encoding="utf-8", errors="ignore") as f:
             for line in f:
                 parts = line.strip().split("|")
                 if len(parts) < 4:
                     continue
+                cui = parts[0].strip()
+                stype = parts[3].strip()
+                if not cui or not stype:
+                    continue
 
-                cui, stype = parts[0], parts[3]
-
-                session.run(
-                    """
+                s.run("""
                     MATCH (c:Concept {cui:$cui})
                     SET c.semantic_type = $stype
-                    """,
-                    cui=cui,
-                    stype=stype
-                )
-
-    print("✅ Semantic groups imported.")
+                """, cui=cui, stype=stype)
