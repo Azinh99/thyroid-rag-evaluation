@@ -2,26 +2,23 @@ import os
 import re
 import pandas as pd
 from datetime import datetime
-from dotenv import load_dotenv
+from pathlib import Path
 
-load_dotenv(".env")
-
+from llm_df import test_llm_connection
 from rag_faiss import retrieve_with_faiss, build_faiss_index
 from rag_graph import retrieve_with_graph
 from rag_hybrid import retrieve_with_hybrid
-from llm_df import test_llm_connection
 
-QUESTION_FILE = "question/thyroid_questions.txt"
-OUT_DIR = "results"
-os.makedirs(OUT_DIR, exist_ok=True)
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+QUESTION_FILE = PROJECT_ROOT / "question" / "thyroid_questions.txt"
+OUT_DIR = PROJECT_ROOT / "output" / "results"
+OUT_DIR.mkdir(parents=True, exist_ok=True)
 
+def load_questions(path: Path):
+    if not path.exists():
+        raise FileNotFoundError(f"Question file not found: {path}")
 
-def load_questions(path):
-    if not os.path.exists(path):
-        raise FileNotFoundError(f"❌ Question file not found: {path}")
-
-    with open(path, "r", encoding="utf-8", errors="ignore") as f:
-        txt = f.read()
+    txt = path.read_text(encoding="utf-8", errors="ignore")
 
     pattern = re.compile(
         r"""
@@ -51,13 +48,11 @@ def load_questions(path):
             "ans": valid_answers
         })
 
-    print(f"Loaded {len(qs)} questions")
     return qs
-
 
 def run(method, questions):
     preds = []
-    correct_flags = []
+    flags = []
 
     for q in questions:
         if method == "faiss":
@@ -67,32 +62,28 @@ def run(method, questions):
         else:
             pred = retrieve_with_hybrid(q["q"], q["opts"])
 
-        pred = pred.strip().upper()
+        pred = (pred or "").strip().upper()
         if pred not in ["A", "B", "C", "D"]:
             pred = "A"
 
         preds.append(pred)
-        correct_flags.append(pred in q["ans"])
+        flags.append(pred in q["ans"])
 
-    if len(correct_flags) == 0:
-        return preds, correct_flags, 0.0
-
-    acc = round(100 * sum(correct_flags) / len(correct_flags), 2)
-    return preds, correct_flags, acc
-
+    acc = round(100.0 * sum(flags) / max(1, len(flags)), 2)
+    return preds, flags, acc
 
 def run_all():
     if not test_llm_connection():
-        print("❌ LLM unreachable")
+        print("LLM is unreachable.")
         return
 
     questions = load_questions(QUESTION_FILE)
-
-    if len(questions) == 0:
-        print("❌ No questions loaded. Check formatting.")
+    if not questions:
+        print("No questions loaded. Check formatting.")
         return
 
-    if not os.path.exists("output/faiss_index.pkl"):
+    faiss_path = PROJECT_ROOT / "output" / "faiss_index.pkl"
+    if not faiss_path.exists():
         build_faiss_index()
 
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -108,16 +99,11 @@ def run_all():
             "correct": [",".join(x["ans"]) for x in questions],
             "is_correct": flags
         })
-
-        df.to_csv(f"{OUT_DIR}/{m}_{ts}.csv", index=False)
+        df.to_csv(OUT_DIR / f"{m}_{ts}.csv", index=False)
         summary.append({"method": m, "accuracy": acc})
+        print(f"{m}: {acc}%")
 
-        print(f"✅ {m} → {acc}%")
-
-    pd.DataFrame(summary).to_csv(
-        f"{OUT_DIR}/SUMMARY_{ts}.csv", index=False
-    )
-
+    pd.DataFrame(summary).to_csv(OUT_DIR / f"SUMMARY_{ts}.csv", index=False)
 
 if __name__ == "__main__":
     run_all()
