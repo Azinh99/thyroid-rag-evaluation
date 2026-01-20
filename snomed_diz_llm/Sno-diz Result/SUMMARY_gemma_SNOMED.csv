@@ -1,0 +1,7 @@
+method,accuracy
+faiss,XX
+graph,YY
+hybrid,ZZ
+faiss,86.00
+graph,82.00
+hybrid,92.00
