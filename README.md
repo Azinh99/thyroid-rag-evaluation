@@ -138,12 +138,20 @@ Results are stored in CSV format for reproducibility.
 
 ## Comparison with State of the Art
 
-The evaluated baselines correspond to commonly used approaches in current Graph-RAG literature:
+Comparison — Medical-Graph-RAG
+https://github.com/ImprintLab/Medical-Graph-RAG
 
-- **Text-only RAG** → Standard RAG baseline
-- **LLM-extracted Graph RAG** → Graph-based retrieval without ontology
-- **Hybrid RAG** → Combined text and graph retrieval
-- **Ontology-aware Hybrid Graph RAG (Ours)** → Structured medical knowledge integration
+Medical-Graph-RAG focuses on building large medical knowledge graphs and using them to support LLM reasoning.
+Our work is more practical and evaluation-driven: we study how FAISS, graph-only, and hybrid retrieval actually affect MCQ accuracy.
+Instead of scaling the graph, we focus on understanding when and why graph knowledge (with or without SNOMED) helps.
+
+⸻
+Comparison — NVIDIA NeMo Guardrails
+https://docs.nvidia.com/nemo/guardrails/latest/user-guides/guardrails-library.html
+
+NVIDIA NeMo Guardrails is mainly about controlling how an LLM behaves, especially for safety and format constraints in medical use.
+Our pipeline focuses on what evidence the model uses by grounding answers in text and knowledge graphs.
+Guardrails could be a complementary layer, but our contribution lies in retrieval and evidence-based reasoning.
 
 
 
