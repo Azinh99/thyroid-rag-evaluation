@@ -148,30 +148,3 @@ The evaluated baselines correspond to commonly used approaches in current Graph-
 
 
 
-# Folder structure
-The repository is organized as follows:
-test_kg/
-├── data/                  # Thyroid cancer articles (.txt)
-│   ├── article1.txt
-│   ├── article2.txt
-│   ├── ...
-│   └── articles/          
-│
-├── question/
-│   └── thyroid_questions.txt   # MCQ set: numbered questions + A/B/C/D + Answer
-│
-├── streamlit/
-│   ├── .env                        # API keys and Neo4j credentials 
-│   ├── main.py                     # Builds the Knowledge Graph in Neo4j
-│   ├── llm_df.py                   # LLM wrapper for MedGEMMA (A/B/C/D output)
-│   ├── rag_faiss.py                # FAISS-based RAG
-│   ├── rag_hybrid.py               # Hybrid retrieval (keywords + FAISS + reranker)
-│   ├── rag_graph.py                # Graph-based RAG using Neo4j
-│   └── evaluate_mcq_with_rag.py    # Main evaluation script for all RAG modes
-│
-├── Dockerfile                      # Container to run the whole pipeline
-├── requirements.txt                # Python dependencies
-├── environment.yml                 # Conda environment (optional)
-├── .gitignore
-└── .dockerignore
-
