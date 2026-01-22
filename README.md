@@ -97,25 +97,30 @@ All models are evaluated using the **same retrieval outputs** to isolate the eff
 
 ---
 
-## Results (LLaMA – Main Focus)
+## Results
 
-### Without SNOMED Ontology
+### Results without SNOMED Ontology
 
-| Method | Accuracy (%) |
-|------|--------------|
-| FAISS (Text-only RAG) |90.91 |
-| Graph RAG | 89.09 |
-| Hybrid RAG |92.73|
+| Model | FAISS (%) | Graph (%) | Hybrid (%) |
+|------|-----------|-----------|------------|
+| LLaMA (llama3.2-vision:90b) | 90.91 | 89.09 | 92.73 |
+| GPT (gpt-oss:120b) | 93.88 | 87.76 | 91.84 |
+| Ministral (ministral-3:14b) | 91.84 | 48.98 | 30.61 |
+| Gemma (gemma3:27b) | 93.88 | 87.76 | 91.84 |
 
 ---
 
-### With SNOMED Ontology
+### Results with SNOMED Ontology
 
-| Method | Accuracy (%) | Accuracy (%) |
-|------|--------------|
-| FAISS + SNOMED | 93.88 |
-| Graph + SNOMED | 91.84 |
-| Hybrid + SNOMED | **97.96** |
+| Model | FAISS + SNOMED (%) | Graph + SNOMED (%) | Hybrid + SNOMED (%) |
+|------|--------------------|--------------------|---------------------|
+| LLaMA (llama3.2-vision:90b) | 93.88 | 91.84 | **97.96** |
+| GPT (gpt-oss:120b) | 93.88 | 87.76 | **91.84** |
+| Ministral (ministral-3:14b) | 91.84 | 89.8 | **91.84** |
+| Gemma (gemma3:27b) | 86 | 82 | **92** |
+
+
+
 
 > **Observation:**  
 > Ontology integration consistently improves performance, with the Hybrid Graph RAG achieving the highest accuracy.
