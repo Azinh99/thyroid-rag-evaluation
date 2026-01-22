@@ -78,6 +78,7 @@ This enables a controlled comparison:
 #### Additional Models
 - **gpt-oss:120b**
 - **gemma3:27b**
+- **ministral-3:14b**
 
 All models are evaluated using the **same retrieval outputs** to isolate the effect of:
 - Retrieval strategy
@@ -110,7 +111,7 @@ All models are evaluated using the **same retrieval outputs** to isolate the eff
 
 ### With SNOMED Ontology
 
-| Method | Accuracy (%) |
+| Method | Accuracy (%) | Accuracy (%) |
 |------|--------------|
 | FAISS + SNOMED | 93.88 |
 | Graph + SNOMED | 91.84 |
