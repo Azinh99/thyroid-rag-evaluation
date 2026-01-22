@@ -17,7 +17,7 @@ All methods are evaluated using the same MCQ benchmark to ensure fair and reprod
 Our experimental pipeline consists of the following core components:
 
 ### Inputs
-- **Medical documents** (PDF / text-based articles)
+- **Medical documents** (text-based articles)
 - **MCQ question file** containing:
   - Question text  
   - Four answer choices (A–D)  
