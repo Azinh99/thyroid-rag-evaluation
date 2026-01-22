@@ -125,8 +125,8 @@ All models are evaluated using the **same retrieval outputs** to isolate the eff
 
 Using the same pipeline, we further evaluate:
 
-- **GPT**
-- **Gemma**
+- **gpt-oss:120b**
+- **gemma3:27b**
 
 Each model is tested:
 - With SNOMED
