@@ -133,6 +133,7 @@ Using the same pipeline, we further evaluate:
 
 - **gpt-oss:120b**
 - **gemma3:27b**
+- **ministral-3:14b**
 
 Each model is tested:
 - With SNOMED
